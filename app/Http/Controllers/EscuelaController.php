@@ -25,7 +25,8 @@ class EscuelaController extends Controller
      */
     public function create()
     {
-        //
+        echo "test";
+        //return view('escuela.crear');
     }
 
     /**
@@ -36,7 +37,15 @@ class EscuelaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required'
+        ]);
+
+        Escuela::create([
+            'nombre' => $request->get('nombre')
+        ]);
+
+        return back()->with('mensaje', 'ok');
     }
 
     /**
@@ -59,7 +68,8 @@ class EscuelaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $escuela = Escuela::find($id);
+        return view('escuela.editar')->with('escuela', $escuela);
     }
 
     /**
@@ -71,7 +81,9 @@ class EscuelaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Escuela::where('id', $id)->update(['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web]);
+        echo "['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web]";
+        return redirect('escuela');
     }
 
     /**
@@ -82,6 +94,7 @@ class EscuelaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Escuela::find($id)->delete();
+        return redirect('escuela');
     }
 }

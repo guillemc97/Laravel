@@ -21,6 +21,14 @@ Route::get('/', function () {
 Route::get('escuela', [EscuelaController::class, 'index']);
 Route::get('escuela/{id}', [EscuelaController::class, 'show']); 
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('escuela/{id}/delete', [EscuelaController::class, 'destroy']);
+});
+
+Route::get('escuela/{id}/edit', [EscuelaController::class, 'edit']); 
+Route::post('escuela/{id}/editar', [EscuelaController::class, 'update']);
+//Route::get('escuela/crear', [EscuelaController::class, 'crear']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
