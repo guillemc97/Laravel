@@ -29,12 +29,12 @@
                 <td>{{ $escuela->telefono }}</td>
                 <td>{{ $escuela->web }}</td>
                 <td>
-                    <a href="{{ url('escuela/'.$escuela->id) }}"><button type="button" class="btn btn-primary" >Ver</button></a>
+                    <a href="{{ url('escuela/show/'.$escuela->id) }}"><button type="button" class="btn btn-primary" >Ver</button></a>
                     <!-- Authentication Links -->
                     @guest
                         @else
-                        <a href="{{ url('escuela/'.$escuela->id.'/edit') }}"><button type="button" class="btn btn-warning">Editar</button></a>
-                        <a href="{{ url('escuela/'.$escuela->id).'/delete' }}"><button type="button" class="btn btn-danger">Eliminar</button></a>
+                        <a href="{{ url('escuela/editar/'.$escuela->id) }}"><button type="button" class="btn btn-warning">Editar</button></a>
+                        <a href="{{ url('escuela/delete/'.$escuela->id) }}"><button type="button" class="btn btn-danger">Eliminar</button></a>
                     @endguest
                 <td>
             </tr>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ url('escuela') }}" method="post">
+<form action="{{ url('escuela/editar/'.$escuela->id) }}" method="POST">
         @csrf
         <div class="form-group">
             <div class="container">

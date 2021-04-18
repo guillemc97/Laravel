@@ -7,6 +7,8 @@ use App\Models\Escuela;
 
 class EscuelaController extends Controller
 {
+    protected $fillable = ['nombre', 'direccion', 'correo', 'telefono', 'web'];
+
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +27,7 @@ class EscuelaController extends Controller
      */
     public function create()
     {
-        echo "test";
-        //return view('escuela.crear');
+        return view('escuela.crear');
     }
 
     /**
@@ -38,14 +39,22 @@ class EscuelaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'correo' => 'required',
+            'telefono' => 'required',
+            'web' => 'required'
         ]);
 
         Escuela::create([
-            'nombre' => $request->get('nombre')
+            'nombre' => $request->get('nombre'),
+            'direccion' => $request->get('direccion'),
+            'correo' => $request->get('correo'),
+            'telefono' => $request->get('telefono'),
+            'web' => $request->get('web')
         ]);
 
-        return back()->with('mensaje', 'ok');
+        return redirect('escuela');
     }
 
     /**
@@ -81,8 +90,7 @@ class EscuelaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Escuela::where('id', $id)->update(['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web]);
-        echo "['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web]";
+        Escuela::where('id', $id)->update(['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web]);
         return redirect('escuela');
     }
 
