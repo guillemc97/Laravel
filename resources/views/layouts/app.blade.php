@@ -74,6 +74,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('escuela') }}">Escuelas</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('alumno') }}">Alumnos</a>
+                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

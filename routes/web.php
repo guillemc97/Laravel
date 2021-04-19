@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EscuelaController;
+use App\Http\Controllers\AlumnoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +22,23 @@ Route::get('/', function () {
 Route::get('escuela', [EscuelaController::class, 'index']);
 Route::get('escuela/show/{id}', [EscuelaController::class, 'show']); 
 
+Route::get('alumno', [AlumnoController::class, 'index']);
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('escuela/delete/{id}', [EscuelaController::class, 'destroy']);
+    Route::get('alumno/delete/{id}', [AlumnoController::class, 'destroy']);
     
     Route::get('escuela/crear', [EscuelaController::class, 'create']);
     Route::post('escuela/crear', [EscuelaController::class, 'store']);
+
+    Route::get('alumno/crear', [AlumnoController::class, 'create']);
+    Route::post('alumno/crear', [AlumnoController::class, 'store']);
     
     Route::get('escuela/editar/{id}', [EscuelaController::class, 'edit']); 
     Route::post('escuela/editar/{id}', [EscuelaController::class, 'update']);
+
+    Route::get('alumno/editar/{id}', [AlumnoController::class, 'edit']); 
+    Route::post('alumno/editar/{id}', [AlumnoController::class, 'update']);
 });
 
 Auth::routes();

@@ -7,31 +7,31 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3">
-                        <h1><input type="text" class="form-control" name="nombre"></h1>
+                        <h1><input type="text" class="form-control" name="nombre" required></h1>
                         <img id="imagen" class="img-thumbnail" src=""/>
-                        <input type="file" class="form-control-file mt-2" accept=".jpg,.png" onchange="foto(this)" id="fileName">
+                        <input type="file" class="form-control-file mt-2" accept=".jpg,.png" onchange="foto(this)" id="fileName" required>
                         <input type="hidden" name="logotipo" class="col-sm-10 form-control" id="imgFinal">
                     </div>
                     <div class="col-6 mt-5">
 
                         <div class="form-group row mt-3">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Direccion</label>
-                            <input type="text" class="col-sm-10 form-control" name="direccion">
+                            <input type="text" class="col-sm-10 form-control" name="direccion" required>
                         </div>
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Correo</label>
-                            <input type="text" class="col-sm-10 form-control" name="correo" >
+                            <input type="text" class="col-sm-10 form-control" name="correo" required>
                         </div>
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Telefono</label>
-                            <input type="text" class="col-sm-10 form-control" name="telefono" >
+                            <input type="text" class="col-sm-10 form-control" name="telefono" required>
                         </div>
 
                         <div class="form-group row">
                             <label for="colFormLabel" class="col-sm-2 col-form-label">Web</label>
-                            <input type="text" class="col-sm-10 form-control" name="web" >
+                            <input type="text" class="col-sm-10 form-control" name="web" required>
                         </div>
                         
                         <button type="submit" class="btn btn-success">Guardar</button>
