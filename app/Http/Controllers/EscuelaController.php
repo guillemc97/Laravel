@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Escuela;
-
 class EscuelaController extends Controller
 {
     /**
@@ -14,7 +13,7 @@ class EscuelaController extends Controller
      */
     public function index()
     {
-        $escuelas = Escuela::all();
+        $escuelas = Escuela::paginate(3);
         return view('escuela.index')->with('escuelas', $escuelas);
     }
 

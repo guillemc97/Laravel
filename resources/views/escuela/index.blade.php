@@ -41,6 +41,6 @@
             @endforeach
         </tbody>
     </table>
-    
+    {{ $escuelas->links() }}
 </div>
 @endsection
