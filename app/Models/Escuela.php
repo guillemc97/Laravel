@@ -9,4 +9,5 @@ class Escuela extends Model
 {
     use HasFactory;
     protected $table = 'escuelas';
+    protected $fillable = ['nombre', 'direccion', 'correo', 'telefono', 'web', 'logotipo'];
 }

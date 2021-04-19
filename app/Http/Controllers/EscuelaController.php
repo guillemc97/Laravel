@@ -7,8 +7,6 @@ use App\Models\Escuela;
 
 class EscuelaController extends Controller
 {
-    protected $fillable = ['nombre', 'direccion', 'correo', 'telefono', 'web'];
-
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +41,8 @@ class EscuelaController extends Controller
             'direccion' => 'required',
             'correo' => 'required',
             'telefono' => 'required',
-            'web' => 'required'
+            'web' => 'required',
+            'logotipo' => 'required'            
         ]);
 
         Escuela::create([
@@ -51,7 +50,8 @@ class EscuelaController extends Controller
             'direccion' => $request->get('direccion'),
             'correo' => $request->get('correo'),
             'telefono' => $request->get('telefono'),
-            'web' => $request->get('web')
+            'web' => $request->get('web'),
+            'logotipo' => $request->get('logotipo')
         ]);
 
         return redirect('escuela');
@@ -90,7 +90,7 @@ class EscuelaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Escuela::where('id', $id)->update(['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web]);
+        Escuela::where('id', $id)->update(['nombre' => $request->nombre, 'direccion' => $request->direccion, 'correo' => $request->correo, 'telefono' => $request->telefono, 'web' => $request->web, 'logotipo' => $request->logotipo]);
         return redirect('escuela');
     }
 

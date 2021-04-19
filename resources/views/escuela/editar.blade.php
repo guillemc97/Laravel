@@ -8,7 +8,9 @@
                 <div class="row">
                     <div class="col-3">
                         <h1><input type="text" class="form-control" name="nombre" value="{{ $escuela->nombre }}"></h1>
-                        <img class="img-thumbnail" src="{{ $escuela->logotipo }}"/>
+                        <img id="imagen" class="img-thumbnail" src="{{ $escuela->logotipo }}"/>
+                        <input type="file" class="form-control-file mt-2" accept=".jpg,.png" onchange="foto(this)" id="fileName">
+                        <input type="hidden" name="logotipo" class="col-sm-10 form-control" id="imgFinal">
                     </div>
                     <div class="col-6 mt-5">
 

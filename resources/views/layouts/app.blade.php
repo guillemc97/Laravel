@@ -10,7 +10,40 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>  
+
+    <script>
+        // Mostrar foto
+        function foto(el) {
+            var fileName = document.getElementById("fileName").value; //Ruta/nom fitxer
+            var idxDot = fileName.lastIndexOf(".") + 1; // Separa al .
+            var extFile = fileName.substr(idxDot, fileName.length).toLowerCase(); // Ecxtencio
+
+            var tamano = 2.0; // Tamany
+
+            var FR = new FileReader(); // Leer IMG
+
+            if (extFile == "jpg" || extFile == "png") { //Sies una foto
+
+                if ((document.getElementById("fileName").files[0].size / 1048576) > tamano) { // Si pesa mes de 2 MB
+                    alert("El archivo no puede superar los " + tamano + " MB");
+                    document.getElementById("fileName").value = "";
+                    return;
+                } else {
+                    FR.onload = function (e) { //Poner img
+                        document.getElementById("imagen").src = e.target.result;
+                        document.getElementById("imgFinal").value = e.target.result;
+                    };
+                    FR.readAsDataURL(el.files[0]);
+                }
+
+            } else {
+                alert("No has seleccionado una imagen");
+                document.getElementById("fileName").value = "";
+                return;
+            }
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
